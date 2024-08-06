@@ -6,6 +6,7 @@ on:
   pull_request:
   release:
     types: [created]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -51,8 +52,8 @@ jobs:
           pip uninstall -y keras keras-nightly
           pip install tf_keras==2.16.0 --progress-bar off --upgrade
           pip install -e "." --progress-bar off --upgrade
-    #   - name: Instrument code
-    #     uses: AryazE/auto-dylin/instrument@main
+      - name: Instrument code
+        uses: AryazE/auto-dylin/instrument@main
       - name: Test applications with pytest
         if: ${{ steps.filter.outputs.applications == 'true' }}
         run: |
@@ -92,6 +93,6 @@ jobs:
           files: core-coverage.xml
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: false
-    #   - name: Report results
-    #     if: always()
-    #     uses: AryazE/auto-dylin/report@main
+      - name: Report results
+        if: always()
+        uses: AryazE/auto-dylin/report@main
