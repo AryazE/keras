@@ -13,5 +13,7 @@ torchvision>=0.16.0
 jax[cpu]
 flax
 
+tensorflow-io
+
 # Common deps.
 -r requirements-common.txt
