@@ -16,7 +16,7 @@ tensorboard-plugin-profile
 rich
 build
 optree
-pytest-cov
+pytest-xdist
 packaging
 # for tree_test.py
 dm_tree
