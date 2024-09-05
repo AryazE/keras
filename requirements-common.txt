@@ -17,6 +17,7 @@ rich
 build
 optree
 pytest-xdist
+pytest-timeout
 packaging
 # for tree_test.py
 dm_tree
