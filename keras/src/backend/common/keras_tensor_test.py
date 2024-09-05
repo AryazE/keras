@@ -300,6 +300,12 @@ class KerasTensorTest(testing.TestCase):
         mock_symbolic_call.assert_called_once_with(x, y)
         self.assertEqual(result, mock_tensor)
 
+    def test_ne_method(self):
+        """Test __ne__ method"""
+        x = keras_tensor.KerasTensor(shape=(3, 4), dtype="float32")
+        result = x == x
+        self.assertEqual(result, True)
+
     @patch("keras.src.ops.LogicalAnd.symbolic_call")
     def test_rand_method(self, mock_symbolic_call):
         """Test __rand__ method"""
